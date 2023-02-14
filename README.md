@@ -1,5 +1,5 @@
 # galaxy-sim
-simple 3D galaxy simulation in pure python using barnes-hut algorithm. readable code.
+simple 3D galaxy simulation in pure python using barnes-hut algorithm. readable code. pypy compatible.
 
 I followed this guide : http://arborjs.org/docs/barnes-hut#:~:text=The%20Barnes%2DHut%20algorithm%20is,of%20which%20may%20be%20empty).
 
