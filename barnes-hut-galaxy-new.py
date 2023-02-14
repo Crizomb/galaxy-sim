@@ -48,6 +48,7 @@ class Star:
 
 class Node:
     """"Node class"""
+     __slots__ = "center", "center_of_mass", "mass", "children", "width"
     def __init__(self, center: Vec3, center_of_mass: Vec3, mass: float, children, width: float):
         self.center = center
         self.center_of_mass = center_of_mass
@@ -132,6 +133,10 @@ def create_stars(nb_stars: int) -> List[Star]:
         orthog = Vec3(1, 0, -x / z) if z > 0 else Vec3(-1, 0, x / z)
         speed = orthog.normalize()*pos.norm
         stars.append(Star(pos, speed, 1))
+        
+    #add center blackhole
+    stars.append(Star(Vec3(0, 0, 0), Vec3(0, 0, 0), nb_stars/10))
+    
     return stars
 
 def create_tree(stars: List[Star]) -> Node:
