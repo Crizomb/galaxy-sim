@@ -107,6 +107,7 @@ class Node:
         else:
             self.create_children()
             self.center_of_mass = (self.center_of_mass * self.mass + star.pos * star.mass) / (self.mass + star.mass)
+            self.mass += star.mass
             self.children[self.get_child_index(star.pos)].insert(star)
 
 
