@@ -117,7 +117,13 @@ class Node:
         if self.is_external or self.width*self.width / dist_squared < THETA_SQUARED:
             return newton_law(self.mass, star.mass, self.center - star.pos)
         else:
-            return sum((child.get_force(star) for child in self.children), Vec3.zero())
+            acc = Vec3.zero()
+            for child in self.children:
+                acc += child.get_force(star)
+            return acc
+
+            #return sum((child.get_force(star) for child in self.children), Vec3.zero()) #slower
+
 
 
 """Init simulation"""
