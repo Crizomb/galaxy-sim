@@ -24,7 +24,8 @@ G = 10
 
 def newton_law(mass1: float, mass2: float, vec_diff: Vec3) -> Vec3:
     """Return the force applied by mass1 on mass2."""
-    return G * vec_diff * (mass1 * mass2 / (vec_diff.norm + SMOOTHING) ** 3)
+    d = vec_diff.norm + SMOOTHING
+    return G * vec_diff * (mass1 * mass2 / (d*d*d))
 
 def get_time(func):
     def wrapper(*args, **kwargs):
