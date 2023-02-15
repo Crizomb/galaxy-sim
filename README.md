@@ -7,3 +7,6 @@ using vispy for rendering :
 
 
 ![galaxies](https://user-images.githubusercontent.com/62544756/218600435-d6ce8609-106c-48c7-9b29-49296b341556.png)
+
+
+![10**4_stars](https://user-images.githubusercontent.com/62544756/219032595-ccc13bb3-953d-4306-a110-2549e171a0b2.png)
