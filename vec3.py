@@ -1,6 +1,3 @@
-from typing import Union
-import math
-import random
 import numpy as np
 
 
@@ -10,17 +7,13 @@ class Vec3:
     __slots__ = ("x", "y", "z")
 
     def __init__(self, x: float, y: float, z: float):
-        self.x = x
-        self.y = y
-        self.z = z
+        self.x, self.y, self.z = x, y, z
 
     def __add__(self, other :"Vec3"):
         return Vec3(self.x + other.x, self.y + other.y, self.z + other.z)
 
     def __iadd__(self, other : "Vec3"):
-        self.x += other.x
-        self.y += other.y
-        self.z += other.z
+        self.x, self.y, self.z = self.x + other.x, self.y + other.y, self.z + other.z
         return self
 
     def __neg__(self):
@@ -30,16 +23,14 @@ class Vec3:
         return Vec3(self.x - other.x, self.y - other.y, self.z - other.z)
 
     def __isub__(self, other : "Vec3"):
-        self.x -= other.x
-        self.y -= other.y
-        self.z -= other.z
+        self.x, self.y, self.z = self.x - other.x, self.y - other.y, self.z - other.z
         return self
 
     def __mul__(self, other : Num):
         return Vec3(self.x * other, self.y * other, self.z * other)
 
     def __rmul__(self, other : Num):
-        return self * other
+        return Vec3(self.x * other, self.y * other, self.z * other)
 
     def __truediv__(self, other : Num):
         return Vec3(self.x / other, self.y / other, self.z / other)
@@ -52,6 +43,9 @@ class Vec3:
 
     def __iter__(self):
         return iter((self.x, self.y, self.z))
+
+    def __copy__(self):
+        return Vec3(self.x, self.y, self.z)
 
     def __repr__(self):
         return f"Vec3({self.x}, {self.y}, {self.z})"
@@ -92,6 +86,7 @@ class Vec3:
     @staticmethod
     def zero():
         return Vec3(0, 0, 0)
+
 
 
 
